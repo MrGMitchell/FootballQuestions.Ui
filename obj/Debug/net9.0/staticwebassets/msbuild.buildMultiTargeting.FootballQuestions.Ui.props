@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\FootballQuestions.Ui.props" />
+</Project>

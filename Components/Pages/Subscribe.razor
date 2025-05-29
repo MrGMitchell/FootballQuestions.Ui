@@ -1,0 +1,106 @@
+@page "/subscribe"
+@using FootballQuestions.Ui.Models
+@using FootballQuestions.Ui.Services
+@inject EmailSubscriptionService SubscriptionService
+
+<h3>Subscribe for Daily Plays!</h3>
+
+<EditForm Model="@emailModel" OnValidSubmit="@HandleSubscribeSubmit" FormName="emailSubscriptionForm">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="email">Email address:</label>
+        <InputText id="email" class="form-control" @bind-Value="emailModel!.Email" />
+        <ValidationMessage For="@(() => emailModel.Email)" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-outline-primary">Subscribe</button>
+    <br />
+    @if (!string.IsNullOrEmpty(submissionMessage))
+    {
+        <div class="alert alert-info mt-3">@submissionMessage</div>
+    }
+</EditForm>
+
+<hr class="my-4" />
+
+<h3>Unsubscribe</h3>
+<EditForm Model="@unsubscribeEmailModel" OnValidSubmit="@HandleUnsubscribeSubmit" FormName="emailUnsubscribeForm">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="unsubscribeEmail">Email address to unsubscribe:</label>
+        <InputText id="unsubscribeEmail" class="form-control" @bind-Value="unsubscribeEmailModel!.Email" />
+        <ValidationMessage For="@(() => unsubscribeEmailModel.Email)" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-outline-danger">Unsubscribe</button>
+    <br />
+    @if (!string.IsNullOrEmpty(unsubscribeMessage))
+    {
+        <div class="alert alert-info mt-3">@unsubscribeMessage</div>
+    }
+</EditForm>
+
+@code {
+    [SupplyParameterFromForm]
+    private Subscriber? emailModel { get; set; }
+
+    [SupplyParameterFromForm]
+    private Subscriber? unsubscribeEmailModel { get; set; }
+
+    private string submissionMessage = string.Empty;
+    private string unsubscribeMessage = string.Empty;
+    
+    protected override void OnInitialized()
+    {
+        emailModel ??= new();
+        unsubscribeEmailModel ??= new();
+    }
+
+    private async Task HandleSubscribeSubmit()
+    {
+        if (!string.IsNullOrWhiteSpace(emailModel.Email) && emailModel.Email.Contains("@"))
+        {
+            var result = await SubscriptionService.Subscribe(emailModel.Email);
+
+            if (result)
+            {
+                submissionMessage = "Thank you for subscribing!";
+                emailModel = new Subscriber(); // Reset the form
+            }
+            else
+            {
+                submissionMessage = "There was an error processing your subscription.";
+            }
+        }
+        else
+        {
+            submissionMessage = "Please enter a valid email address.";
+        }
+    }
+
+    private async Task HandleUnsubscribeSubmit()
+    {
+        if (!string.IsNullOrWhiteSpace(unsubscribeEmailModel.Email) && unsubscribeEmailModel.Email.Contains("@"))
+        {
+            var result = await SubscriptionService.Unsubscribe(unsubscribeEmailModel.Email);
+
+            if (result)
+            {
+                unsubscribeMessage = "You have been unsubscribed successfully.";
+                unsubscribeEmailModel = new Subscriber(); // Reset the form
+            }
+            else
+            {
+                unsubscribeMessage = "There was an error processing your unsubscribe request or the email was not found.";
+            }
+        }
+        else
+        {
+            unsubscribeMessage = "Please enter a valid email address.";
+        }
+    }
+}

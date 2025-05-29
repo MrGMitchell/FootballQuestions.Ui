@@ -1,0 +1,57 @@
+is_global = true
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = FootballQuestions.Ui
+build_property.RootNamespace = FootballQuestions.Ui
+build_property.ProjectDir = C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/gmitc/OneDrive/Desktop/GitHub/FootballQuestions.Ui/FootballQuestions.Ui/Components/App.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmitc/OneDrive/Desktop/GitHub/FootballQuestions.Ui/FootballQuestions.Ui/Components/Pages/DailyQuestion.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEYWlseVF1ZXN0aW9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmitc/OneDrive/Desktop/GitHub/FootballQuestions.Ui/FootballQuestions.Ui/Components/Pages/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmitc/OneDrive/Desktop/GitHub/FootballQuestions.Ui/FootballQuestions.Ui/Components/Pages/Practice.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQcmFjdGljZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmitc/OneDrive/Desktop/GitHub/FootballQuestions.Ui/FootballQuestions.Ui/Components/Pages/Subscribe.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTdWJzY3JpYmUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmitc/OneDrive/Desktop/GitHub/FootballQuestions.Ui/FootballQuestions.Ui/Components/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmitc/OneDrive/Desktop/GitHub/FootballQuestions.Ui/FootballQuestions.Ui/Components/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gmitc/OneDrive/Desktop/GitHub/FootballQuestions.Ui/FootballQuestions.Ui/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-oh95tdnis6
+
+[C:/Users/gmitc/OneDrive/Desktop/GitHub/FootballQuestions.Ui/FootballQuestions.Ui/Components/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-f0u8xnbp6h

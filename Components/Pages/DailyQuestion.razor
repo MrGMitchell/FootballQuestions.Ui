@@ -1,0 +1,40 @@
+﻿@page "/"
+@using System.Net.Http.Headers
+@using FootballQuestions.Ui.Models
+@using Microsoft.AspNetCore.Components
+
+<PageTitle>Daily Question</PageTitle>
+
+<div class="container mt-5">
+    <h1 class="text-center">Today's Football Question</h1>
+    
+    @if (footballQuestion != null)
+    {
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5>@footballQuestion.Question</h5>
+            </div>
+            <div class="card-body">
+                <p>@footballQuestion.Ruling</p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <p class="text-center">Loading today's question...</p>
+    }
+</div>
+
+@code{
+    private FootballQuestion? footballQuestion;
+
+    protected override async Task OnInitializedAsync()
+    {
+        using HttpClient client = new();
+
+        client.DefaultRequestHeaders.Accept.Clear();
+        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+        footballQuestion = await client.GetFromJsonAsync<FootballQuestion>($"http://localhost:5227/FootballQuestion/GetTodaysFootballQuestionAsync");
+    }
+}
