@@ -35,6 +35,6 @@
         client.DefaultRequestHeaders.Accept.Clear();
         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-        footballQuestion = await client.GetFromJsonAsync<FootballQuestion>($"http://localhost:5227/FootballQuestion/GetTodaysFootballQuestionAsync");
+        footballQuestion = await client.GetFromJsonAsync<FootballQuestion>($"https://luna-api-fbbwbveqambydvcy.eastus2-01.azurewebsites.net/FootballQuestion/GetTodaysFootballQuestionAsync");
     }
 }

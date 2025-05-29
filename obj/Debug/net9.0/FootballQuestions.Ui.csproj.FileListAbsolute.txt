@@ -120,3 +120,4 @@ C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\bin\Debug\net9.0\System.Text.Json.dll
+C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\FootballQuestions.Ui.sourcelink.json

@@ -67,7 +67,7 @@
         client.DefaultRequestHeaders.Accept.Clear();
         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-        var footballQuestions = client.GetFromJsonAsync<List<FootballQuestion>>($"http://localhost:5227/FootballQuestion/GetQuizFootballQuestions?numberOfQuestions=1").Result;
+        var footballQuestions = client.GetFromJsonAsync<List<FootballQuestion>>($"https://luna-api-fbbwbveqambydvcy.eastus2-01.azurewebsites.net/FootballQuestion/GetQuizFootballQuestions?numberOfQuestions=1").Result;
 
         var googleAI = new GoogleAi(Configuration["GoogleAI:ApiKey"]);
         var model = googleAI.CreateGenerativeModel("models/gemini-2.5-flash-preview-05-20");
