@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("1aa6dea4-4508-4eaa-91f3-1e32cb370cf5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("FootballQuestions.Ui")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f91bc0b0652d11b41fb4f7e0b4f16927b3fc2852")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dbd0cefea9d4e02f25034816bb06070c3cdd1ae1")]
 [assembly: System.Reflection.AssemblyProductAttribute("FootballQuestions.Ui")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FootballQuestions.Ui")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

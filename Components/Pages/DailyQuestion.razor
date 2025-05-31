@@ -1,7 +1,10 @@
 ﻿@page "/"
 @using System.Net.Http.Headers
 @using FootballQuestions.Ui.Models
+@using FootballQuestions.Ui.Services
 @using Microsoft.AspNetCore.Components
+
+@inject IFootballQuestionService FootballQuestionService
 
 <PageTitle>Daily Question</PageTitle>
 
@@ -30,11 +33,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        using HttpClient client = new();
-
-        client.DefaultRequestHeaders.Accept.Clear();
-        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-        footballQuestion = await client.GetFromJsonAsync<FootballQuestion>($"https://luna-api-fbbwbveqambydvcy.eastus2-01.azurewebsites.net/FootballQuestion/GetTodaysFootballQuestionAsync");
+        footballQuestion = await FootballQuestionService.GetTodaysQuestion();
     }
 }

@@ -1,14 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>1aa6dea4-4508-4eaa-91f3-1e32cb370cf5</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Identity" Version="1.14.0" />
     <PackageReference Include="Google_GenerativeAI" Version="2.5.10" />
+    <PackageReference Include="Microsoft.Azure.AppConfiguration.AspNetCore" Version="8.2.0" />
     <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.51.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.AzureAppConfiguration" Version="8.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 

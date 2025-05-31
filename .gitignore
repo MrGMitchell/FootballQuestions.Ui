@@ -1,0 +1,109 @@
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.userprefs
+*.pdb
+*.orig
+*.obj
+*.aps
+*.bsc
+*.sbr
+*.res
+*.pch
+*.ipch
+*.log
+*.rpt
+*.bak
+*.ncb
+*.opensdf
+*.sdf
+*.tlog
+*.idb
+*.opt
+*.db
+*.testsettings
+*.vsmdi
+*.vsmacros
+*.webtest
+*.xpt
+*.filters
+*.vcxproj.user
+*.vcxproj.filters
+
+# Binaries
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+*.dll
+*.exe
+*.o
+*.so
+*.a
+*.lib
+*.ncb
+*.pdb
+*.fsx
+*.fsi
+*.fsscript
+*.dotSettings
+*.resharper
+*.user
+*.bak
+*.ilk
+*.tlb
+*.tlh
+*.tli
+*.tmp
+*.vspscc
+*.vssscc
+*.vsp
+*.eun
+*.ipch
+*.obj
+*.sbr
+*.pdb
+
+# Build results
+*.exe
+*.dll
+*.pdb
+*.apk
+*.ap_
+*.aab
+*.nupkg
+*.snk
+
+# Packages
+packages/
+node_modules/
+npm-debug.log*
+
+# User-specific files
+*.user
+*.user.json
+*.user.nuget
+*.cache
+*.sqlite
+
+# Rider files
+.idea/
+*.sln.DotSettings
+*.DotSettings.user
+
+# Mac OS files
+.DS_Store
+
+# Misc
+*.suo
+*.user
+*.tlog
+*.vshost.*
+[Bb]in/
+[Oo]bj/
+_UpgradeReport_Files/
+
+# Blazor specific
+wwwroot/bundle.js # If you have a custom bundling process that creates this
+wwwroot/bundle.css # If you have a custom bundling process that creates this

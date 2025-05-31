@@ -44,13 +44,25 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Azure.Identity": {
+              "target": "Package",
+              "version": "[1.14.0, )"
+            },
             "Google_GenerativeAI": {
               "target": "Package",
               "version": "[2.5.10, )"
             },
+            "Microsoft.Azure.AppConfiguration.AspNetCore": {
+              "target": "Package",
+              "version": "[8.2.0, )"
+            },
             "Microsoft.Azure.Cosmos": {
               "target": "Package",
               "version": "[3.51.0, )"
+            },
+            "Microsoft.Extensions.Configuration.AzureAppConfiguration": {
+              "target": "Package",
+              "version": "[8.2.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

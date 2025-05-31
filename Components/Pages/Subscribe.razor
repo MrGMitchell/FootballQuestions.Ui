@@ -1,7 +1,9 @@
 @page "/subscribe"
 @using FootballQuestions.Ui.Models
 @using FootballQuestions.Ui.Services
-@inject EmailSubscriptionService SubscriptionService
+@inject IEmailSubscriptionService SubscriptionService
+
+<PageTitle>Subscribe</PageTitle>
 
 <h3>Subscribe for Daily Plays!</h3>
 
@@ -62,7 +64,7 @@
 
     private async Task HandleSubscribeSubmit()
     {
-        if (!string.IsNullOrWhiteSpace(emailModel.Email) && emailModel.Email.Contains("@"))
+        if (emailModel != null && !string.IsNullOrWhiteSpace(emailModel.Email) && emailModel.Email.Contains("@"))
         {
             var result = await SubscriptionService.Subscribe(emailModel.Email);
 
@@ -84,7 +86,7 @@
 
     private async Task HandleUnsubscribeSubmit()
     {
-        if (!string.IsNullOrWhiteSpace(unsubscribeEmailModel.Email) && unsubscribeEmailModel.Email.Contains("@"))
+        if (unsubscribeEmailModel != null && !string.IsNullOrWhiteSpace(unsubscribeEmailModel.Email) && unsubscribeEmailModel.Email.Contains("@"))
         {
             var result = await SubscriptionService.Unsubscribe(unsubscribeEmailModel.Email);
 
