@@ -14,7 +14,6 @@ C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\scopedcss\bundle\FootballQuestions.Ui.styles.css
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\scopedcss\projectbundle\FootballQuestions.Ui.bundle.scp.css
-C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\compressed\7ekl71cmy9-khy4lop6wu.gz
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\compressed\2dzmz3i996-bqjiyaj88i.gz
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\compressed\yyzsb8whr1-c2jlpeoesf.gz
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\compressed\27n9u72bta-erw9l3u2r3.gz
@@ -130,3 +129,4 @@ C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\bin\Debug\net9.0\Microsoft.Identity.Client.Extensions.Msal.dll
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\bin\Debug\net9.0\Microsoft.Azure.AppConfiguration.AspNetCore.dll
+C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\compressed\7ekl71cmy9-zp4bfhxi4i.gz

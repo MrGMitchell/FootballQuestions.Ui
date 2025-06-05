@@ -33,13 +33,13 @@ namespace FootballQuestions.Ui.Services
             }
         }
         
-        public async Task<List<FootballQuestion>?> GetQuizFootballQuestions()
+        public async Task<List<QuizQuestion>?> GetQuizFootballQuestions()
         {
             try
             {
                 var client = _httpClientFactory.CreateClient("LunaApi");
                 
-                var footballQuestions = await client.GetFromJsonAsync<List<FootballQuestion>>(@$"{quizQuestionEndpoint}?numberOfQuestions=1");
+                var footballQuestions = await client.GetFromJsonAsync<List<QuizQuestion>>(quizQuestionEndpoint);
 
                 return footballQuestions;
             }

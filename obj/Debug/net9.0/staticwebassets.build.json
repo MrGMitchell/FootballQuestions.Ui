@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LPeEFMeIHKW/5ILF44pJe7wfeqLENr8ipz1qm39twus=",
+  "Hash": "A9LecHPsaF1zYDRg9g7GMLziznrRXPyiz0N58tS7ow0=",
   "Source": "FootballQuestions.Ui",
   "BasePath": "_content/FootballQuestions.Ui",
   "Mode": "Default",
@@ -206,12 +206,12 @@
       "OriginalItemSpec": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\obj\\Debug\\net9.0\\compressed\\7ekl71cmy9-khy4lop6wu.gz",
+      "Identity": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\obj\\Debug\\net9.0\\compressed\\7ekl71cmy9-zp4bfhxi4i.gz",
       "SourceId": "FootballQuestions.Ui",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/FootballQuestions.Ui",
-      "RelativePath": "app#[.{fingerprint=khy4lop6wu}]?.css.gz",
+      "RelativePath": "app#[.{fingerprint=zp4bfhxi4i}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -220,8 +220,8 @@
       "RelatedAsset": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\wwwroot\\app.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "596e5mu3rg",
-      "Integrity": "KfTtGgOr4gFqWP6bDC3erwKnY0fchsCFGM8SFQeyGO0=",
+      "Fingerprint": "mhqun0ax9j",
+      "Integrity": "mjj1WFHGfTorv0Z7uBw0Jw9EjeFpkOYG64Rj0QJG9Co=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\wwwroot\\app.css"
@@ -1060,8 +1060,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "khy4lop6wu",
-      "Integrity": "aNPcLFwdCCGS2v1guSR64Htd4Ly5uclT7taAptnMPbs=",
+      "Fingerprint": "zp4bfhxi4i",
+      "Integrity": "WTDVVgYY9DuC5fhYq9EmtN6Mte/ASsWt2TE7Um0yLqo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\app.css"
@@ -2015,12 +2015,12 @@
   "Endpoints": [
     {
       "Route": "app.css",
-      "AssetFile": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\obj\\Debug\\net9.0\\compressed\\7ekl71cmy9-khy4lop6wu.gz",
+      "AssetFile": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\obj\\Debug\\net9.0\\compressed\\7ekl71cmy9-zp4bfhxi4i.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000636132316"
+          "Quality": "0.000602046960"
         }
       ],
       "ResponseHeaders": [
@@ -2030,15 +2030,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1571"
+          "Value": "1660"
         },
         {
           "Name": "ETag",
-          "Value": "\"KfTtGgOr4gFqWP6bDC3erwKnY0fchsCFGM8SFQeyGO0=\""
+          "Value": "\"mjj1WFHGfTorv0Z7uBw0Jw9EjeFpkOYG64Rj0QJG9Co=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 21 May 2025 23:14:21 GMT"
+          "Value": "Wed, 04 Jun 2025 22:31:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2058,13 +2058,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"aNPcLFwdCCGS2v1guSR64Htd4Ly5uclT7taAptnMPbs=\""
+          "Value": "W/\"WTDVVgYY9DuC5fhYq9EmtN6Mte/ASsWt2TE7Um0yLqo=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-aNPcLFwdCCGS2v1guSR64Htd4Ly5uclT7taAptnMPbs="
+          "Value": "sha256-WTDVVgYY9DuC5fhYq9EmtN6Mte/ASsWt2TE7Um0yLqo="
         }
       ]
     },
@@ -2079,7 +2079,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2900"
+          "Value": "3102"
         },
         {
           "Name": "Content-Type",
@@ -2087,11 +2087,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"aNPcLFwdCCGS2v1guSR64Htd4Ly5uclT7taAptnMPbs=\""
+          "Value": "\"WTDVVgYY9DuC5fhYq9EmtN6Mte/ASsWt2TE7Um0yLqo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 21 May 2025 23:14:21 GMT"
+          "Value": "Wed, 04 Jun 2025 22:31:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2101,13 +2101,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-aNPcLFwdCCGS2v1guSR64Htd4Ly5uclT7taAptnMPbs="
+          "Value": "sha256-WTDVVgYY9DuC5fhYq9EmtN6Mte/ASsWt2TE7Um0yLqo="
         }
       ]
     },
     {
       "Route": "app.css.gz",
-      "AssetFile": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\obj\\Debug\\net9.0\\compressed\\7ekl71cmy9-khy4lop6wu.gz",
+      "AssetFile": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\obj\\Debug\\net9.0\\compressed\\7ekl71cmy9-zp4bfhxi4i.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2116,7 +2116,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1571"
+          "Value": "1660"
         },
         {
           "Name": "Content-Type",
@@ -2124,11 +2124,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"KfTtGgOr4gFqWP6bDC3erwKnY0fchsCFGM8SFQeyGO0=\""
+          "Value": "\"mjj1WFHGfTorv0Z7uBw0Jw9EjeFpkOYG64Rj0QJG9Co=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 21 May 2025 23:14:21 GMT"
+          "Value": "Wed, 04 Jun 2025 22:31:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2146,18 +2146,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-KfTtGgOr4gFqWP6bDC3erwKnY0fchsCFGM8SFQeyGO0="
+          "Value": "sha256-mjj1WFHGfTorv0Z7uBw0Jw9EjeFpkOYG64Rj0QJG9Co="
         }
       ]
     },
     {
-      "Route": "app.khy4lop6wu.css",
-      "AssetFile": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\obj\\Debug\\net9.0\\compressed\\7ekl71cmy9-khy4lop6wu.gz",
+      "Route": "app.zp4bfhxi4i.css",
+      "AssetFile": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\obj\\Debug\\net9.0\\compressed\\7ekl71cmy9-zp4bfhxi4i.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000636132316"
+          "Quality": "0.000602046960"
         }
       ],
       "ResponseHeaders": [
@@ -2167,15 +2167,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1571"
+          "Value": "1660"
         },
         {
           "Name": "ETag",
-          "Value": "\"KfTtGgOr4gFqWP6bDC3erwKnY0fchsCFGM8SFQeyGO0=\""
+          "Value": "\"mjj1WFHGfTorv0Z7uBw0Jw9EjeFpkOYG64Rj0QJG9Co=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 21 May 2025 23:14:21 GMT"
+          "Value": "Wed, 04 Jun 2025 22:31:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2195,13 +2195,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"aNPcLFwdCCGS2v1guSR64Htd4Ly5uclT7taAptnMPbs=\""
+          "Value": "W/\"WTDVVgYY9DuC5fhYq9EmtN6Mte/ASsWt2TE7Um0yLqo=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "khy4lop6wu"
+          "Value": "zp4bfhxi4i"
         },
         {
           "Name": "label",
@@ -2209,12 +2209,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-aNPcLFwdCCGS2v1guSR64Htd4Ly5uclT7taAptnMPbs="
+          "Value": "sha256-WTDVVgYY9DuC5fhYq9EmtN6Mte/ASsWt2TE7Um0yLqo="
         }
       ]
     },
     {
-      "Route": "app.khy4lop6wu.css",
+      "Route": "app.zp4bfhxi4i.css",
       "AssetFile": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\wwwroot\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2224,7 +2224,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2900"
+          "Value": "3102"
         },
         {
           "Name": "Content-Type",
@@ -2232,11 +2232,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"aNPcLFwdCCGS2v1guSR64Htd4Ly5uclT7taAptnMPbs=\""
+          "Value": "\"WTDVVgYY9DuC5fhYq9EmtN6Mte/ASsWt2TE7Um0yLqo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 21 May 2025 23:14:21 GMT"
+          "Value": "Wed, 04 Jun 2025 22:31:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2246,7 +2246,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "khy4lop6wu"
+          "Value": "zp4bfhxi4i"
         },
         {
           "Name": "label",
@@ -2254,13 +2254,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-aNPcLFwdCCGS2v1guSR64Htd4Ly5uclT7taAptnMPbs="
+          "Value": "sha256-WTDVVgYY9DuC5fhYq9EmtN6Mte/ASsWt2TE7Um0yLqo="
         }
       ]
     },
     {
-      "Route": "app.khy4lop6wu.css.gz",
-      "AssetFile": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\obj\\Debug\\net9.0\\compressed\\7ekl71cmy9-khy4lop6wu.gz",
+      "Route": "app.zp4bfhxi4i.css.gz",
+      "AssetFile": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\obj\\Debug\\net9.0\\compressed\\7ekl71cmy9-zp4bfhxi4i.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2269,7 +2269,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1571"
+          "Value": "1660"
         },
         {
           "Name": "Content-Type",
@@ -2277,11 +2277,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"KfTtGgOr4gFqWP6bDC3erwKnY0fchsCFGM8SFQeyGO0=\""
+          "Value": "\"mjj1WFHGfTorv0Z7uBw0Jw9EjeFpkOYG64Rj0QJG9Co=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 21 May 2025 23:14:21 GMT"
+          "Value": "Wed, 04 Jun 2025 22:31:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2299,7 +2299,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "khy4lop6wu"
+          "Value": "zp4bfhxi4i"
         },
         {
           "Name": "label",
@@ -2307,7 +2307,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-KfTtGgOr4gFqWP6bDC3erwKnY0fchsCFGM8SFQeyGO0="
+          "Value": "sha256-mjj1WFHGfTorv0Z7uBw0Jw9EjeFpkOYG64Rj0QJG9Co="
         }
       ]
     },

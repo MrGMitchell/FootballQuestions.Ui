@@ -3,6 +3,7 @@
 
 @inject IConfiguration Configuration
 @inject IFootballQuestionService FootballQuestionService
+@inject NavigationManager NavManager
 
 @using System.Net.Http.Json
 @using System.Text
@@ -14,152 +15,153 @@
 
 <PageTitle>Practice</PageTitle>
 
-@if (!quizQuestions.Any()) {
-    <button class="btn btn-primary mt-2" @onclick="SendMessage" disabled="@isLoading">
-        @if (isLoading)
-        {
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            <span> Loading...</span>
-        }
-        else
-        {
-            <span>Get Question</span>
-        }
-    </button>
-}
+@if (currentQuestion != null)
+{
+    <div class="border rounded p-2 mb-2 fs-4 text-center fw-semibold">Question @(currentQuestionIndex + 1) of
+        @questions.Count</div>
 
-@if (!string.IsNullOrEmpty(errorMessage)) {
-    <div class="alert alert-danger mt-3" role="alert">
-        @errorMessage
+    <div class="border rounded p-2 mb-2 bg-info-subtle fw-bold fs-3">@currentQuestion.Question</div>
+
+    <div class="options-container">
+        @foreach (var option in currentQuestion?.Choices ?? Enumerable.Empty<string>())
+        {
+            <button class="btn @GetOptionButtonClass(option)" @onclick="() => SelectAnswer(option)"
+                disabled="@(userAnswers.Any(ua => ua.QuestionId == currentQuestion.QuestionId))">
+                @option
+            </button>
+        }
     </div>
-}
 
-@if (quizQuestions.Any()) {
-    <div class="mt-3">
-        @foreach (var question in quizQuestions){
-            <div class="card mt-3">
-                <div class="card-header">
-                    <h5>@question.Question</h5>
-                </div>
-                <div class="card-body">
-                    <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
-                        <input type="radio" class="btn-check" name="choice" id="choice1" autocomplete="off">
-                        <label class="btn btn-outline-success" for="choice1">@question.Choices?.Choice1</label>
-                        <input type="radio" class="btn-check" name="choice" id="choice2" autocomplete="off">
-                        <label class="btn btn-outline-success" for="choice2">@question.Choices?.Choice2</label>
-                        <input type="radio" class="btn-check" name="choice" id="choice3" autocomplete="off">
-                        <label class="btn btn-outline-success" for="choice3">@question.Choices?.Choice3</label>
-                        <input type="radio" class="btn-check" name="choice" id="choice4" autocomplete="off">
-                        <label class="btn btn-outline-success" for="choice4">@question.Choices?.Choice4</label>
-                    </div>
-                </div>
+    <div class="navigation-buttons mt-4 d-flex justify-content-between">
+        <div class="container-fluid d-grid">
+            <button class="btn btn-outline-secondary" @onclick="PreviousQuestion" disabled="@(currentQuestionIndex == 0)">
+                Previous
+            </button>
+        </div>
+        <div class="container-fluid d-grid">
+            <button class="btn btn-outline-primary" @onclick="NextQuestion"
+                disabled="@(currentQuestionIndex == questions.Count - 1 || !userAnswers.Any(ua => ua.QuestionId == currentQuestion.QuestionId))">
+                Next
+            </button>
+        </div>
+        @if (currentQuestionIndex == questions.Count - 1 && userAnswers.Count == questions.Count)
+        {
+            <div class="container-fluid d-grid">
+                <button class="btn btn-outline-success" @onclick="FinishQuiz">
+                    Finish Quiz
+                </button>
             </div>
         }
     </div>
+
+    @if (userAnswers.Any(ua => ua.QuestionId == currentQuestion.QuestionId))
+    {
+        var userAnswerForCurrentQuestion = userAnswers.FirstOrDefault(ua => ua.QuestionId == currentQuestion.QuestionId);
+        <p class="mt-3">
+            Your answer: <strong>@userAnswerForCurrentQuestion?.SelectedAnswer</strong>
+            <br />
+            @if (userAnswerForCurrentQuestion?.IsCorrect == true)
+            {
+                <span class="text-success">(Correct!)</span>
+            }
+            else
+            {
+                <span class="text-danger">(Incorrect. Correct answer: @currentQuestion.CorrectAnswer)</span>
+            }
+        </p>
+    }
+}
+else
+{
+    <p>Loading quiz...</p>
 }
 
+
 @code {
-    private List<QuizQuestion> quizQuestions = new();
-    private string errorMessage = "";
-    private bool isLoading = false;
-    private Choice choices = new();
+    private List<QuizQuestion> questions = new();
+    private QuizQuestion? currentQuestion => questions.Count > 0 ? questions[currentQuestionIndex] : null;
+    private int currentQuestionIndex = 0;
+    private List<UserAnswer> userAnswers = new List<UserAnswer>();
 
-    private async Task SendMessage()
+    protected override async Task OnInitializedAsync()
     {
-        errorMessage = ""; // Clear previous error
-        isLoading = true;   // Set loading state to true FIRST
-        quizQuestions = new List<QuizQuestion>(); // Clear questions
-        StateHasChanged(); // <<< IMPORTANT: Force UI re-render immediately
-
-        try
+        questions = await FootballQuestionService.GetQuizFootballQuestions() ?? new List<QuizQuestion>();
+        // You might want to shuffle questions here:
+        foreach (var question in questions)
         {
-            var footballQuestions = await FootballQuestionService.GetQuizFootballQuestions(); // First API call
-
-            if (footballQuestions == null || !footballQuestions.Any())
-            {
-                errorMessage = "No football questions retrieved.";
-                return; // Exit if no questions to process
-            }
-
-            var googleAI = new GoogleAi(Configuration["GoogleAI"]);
-            var model = googleAI.CreateGenerativeModel(Configuration["GoogleAiModel"]);
-
-            foreach (var question in footballQuestions)
-            {
-                var prompt = $"Generate 4 multiple choice answers for the following question: \"{question.Question}\". One of the four choices should be: \"{question.Ruling}\". The other 3 choices should be in the same format. Return the answer in JSON format. The JSON should have the following format: {{\"choice1\": \"<choice1>\", \"choice2\":\"<choice2>\", \"choice3\":\"<choice3>\", \"choice4\":\"<choice4>\"}}";
-
-                // Consider adding a timeout to the AI call if it can be slow
-                var result = await model.GenerateContentAsync(prompt);
-                var jsonResponse = CleanJsonWrapper(result.Text);
-
-                // Add robust deserialization handling
-                try
-                {
-                    var choices = JsonConvert.DeserializeObject<Choice>(jsonResponse);
-                    if (choices != null)
-                    {
-                        quizQuestions.Add(new QuizQuestion
-                        {
-                            Question = question.Question,
-                            Choices = choices
-                        });
-                    }
-                    else
-                    {
-                        Console.Error.WriteLine($"Warning: Deserialized choices were null for question: {question.Question}");
-                    }
-                }
-                catch (JsonException jsonEx)
-                {
-                    Console.Error.WriteLine($"JSON deserialization error for question '{question.Question}': {jsonEx.Message}. Raw JSON: {jsonResponse}");
-                    errorMessage = "Error processing some question data.";
-                    // Optionally, skip this question or handle it differently
-                }
-            }
-        }
-        catch (HttpRequestException httpEx)
-        {
-            // Specific handling for network/API errors
-            errorMessage = $"Network or API error: {httpEx.Message}";
-            Console.Error.WriteLine($"HttpRequestException: {httpEx}");
-        }
-        catch (Exception ex)
-        {
-            // General error handling
-            errorMessage = $"An unexpected error occurred: {ex.Message}";
-            Console.Error.WriteLine($"General Exception: {ex}");
-        }
-        finally
-        {
-            isLoading = false; // Always turn off loading state
-            StateHasChanged(); // <<< IMPORTANT: Force UI re-render after loading is done/error occurred
+            question.Choices = question.Choices.OrderBy(c => Guid.NewGuid()).ToList();
         }
     }
 
-    public static string CleanJsonWrapper(string input)
+    private void SelectAnswer(string selectedOption)
     {
-        if (string.IsNullOrEmpty(input))
+        // Prevent re-answering the same question
+        if (currentQuestion == null || userAnswers.Any(ua => ua.QuestionId == currentQuestion.QuestionId))
         {
-            return input; // Return null or empty if the input is null or empty
+            return;
         }
 
-        string prefix = "```json";
-        string suffix = "```";
+        var isCorrect = (selectedOption.Trim() == currentQuestion.CorrectAnswer.Trim());
 
-        string cleanedString = input.Trim(); // Remove any leading/trailing whitespace
-
-        // Check and remove prefix
-        if (cleanedString.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
+        userAnswers.Add(new UserAnswer
         {
-            cleanedString = cleanedString.Substring(prefix.Length);
+            QuestionId = currentQuestion.QuestionId,
+            SelectedAnswer = selectedOption,
+            IsCorrect = isCorrect
+        });
+    }
+
+    private void NextQuestion()
+    {
+        if (currentQuestionIndex < questions.Count - 1)
+        {
+            currentQuestionIndex++;
+        }
+    }
+
+    private void PreviousQuestion()
+    {
+        if (currentQuestionIndex > 0)
+        {
+            currentQuestionIndex--;
+        }
+    }
+
+    private void FinishQuiz()
+    {
+        // Store userAnswers in a service or pass via QueryString/State management
+        // For simplicity, we'll store it statically (not recommended for production)
+        // Or better, use a persistent state service/component.
+        QuizState.UserQuizAnswers = userAnswers;
+        QuizState.AllQuestions = questions; // Pass all questions to results page
+
+        NavManager.NavigateTo("/results");
+    }
+
+    private string GetOptionButtonClass(string option)
+    {
+        if (currentQuestion == null)
+        {
+            return "btn-outline-secondary";
         }
 
-        // Check and remove suffix
-        if (cleanedString.EndsWith(suffix, StringComparison.OrdinalIgnoreCase))
-        {
-            cleanedString = cleanedString.Substring(0, cleanedString.Length - suffix.Length);
-        }
+        var userAnswer = userAnswers.FirstOrDefault(ua => ua.QuestionId == currentQuestion.QuestionId);
 
-        return cleanedString.Trim(); // Trim again in case of spaces introduced by substring
+        if (userAnswer != null)
+        {
+            if (option.Trim() == currentQuestion.CorrectAnswer.Trim())
+            {
+                return "btn-success"; // Correct answer
+            }
+            else if (option == userAnswer.SelectedAnswer)
+            {
+                return "btn-danger"; // User's incorrect answer
+            }
+            else
+            {
+                return "btn-secondary"; // Other options for an answered question
+            }
+        }
+        return "btn-outline-secondary"; // Default for unanswered options
     }
 }
