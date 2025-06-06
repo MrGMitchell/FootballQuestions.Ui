@@ -1,0 +1,73 @@
+@page "/results"
+@using FootballQuestions.Ui.Services
+@rendermode InteractiveServer
+@inject NavigationManager NavManager
+
+<PageTitle>Results</PageTitle>
+
+<h1>Results</h1>
+
+@if (QuizState.AllQuestions.Any())
+{
+    int correctAnswers = QuizState.UserQuizAnswers.Count(ua => ua.IsCorrect);
+    int totalQuestions = QuizState.AllQuestions.Count;
+
+    <h2>You scored: @correctAnswers / @totalQuestions</h2>
+
+    <div class="mt-4">
+        @foreach (var question in QuizState.AllQuestions)
+        {
+            var userAnswer = QuizState.UserQuizAnswers.FirstOrDefault(ua => ua.QuestionId == question.QuestionId);
+            <div class="card mb-3 @(userAnswer?.IsCorrect == true ? "border-success" : "border-danger")">
+                <div class="card-body">
+                    <h5 class="card-title">Question @question.QuestionId: @question.Question</h5>
+                    <p class="card-text">
+                        <strong>Your Answer:</strong>
+                        @if (userAnswer != null)
+                        {
+                            <span class="@(userAnswer.IsCorrect ? "text-success" : "text-danger")">
+                                @userAnswer.SelectedAnswer
+                                @(userAnswer.IsCorrect ? "(Correct)" : "(Incorrect)")
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="text-muted">No answer provided</span>
+                        }
+                    </p>
+                    <p class="card-text">
+                        <strong>Correct Answer:</strong> <span class="text-success">@question.CorrectAnswer</span>
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+
+    <button class="btn btn-primary mt-4" @onclick="RestartQuiz">
+        Restart Quiz
+    </button>
+}
+else
+{
+    <p>No quiz results found. Please complete the quiz first.</p>
+    <button class="btn btn-primary mt-4" @onclick="RestartQuiz">
+        Go to Quiz
+    </button>
+}
+
+
+@code {
+    protected override void OnInitialized()
+    {
+        // You might want to add some validation here if the user navigates directly to /results
+        // without completing the quiz.
+    }
+
+    private void RestartQuiz()
+    {
+        // Clear previous state
+        QuizState.UserQuizAnswers.Clear();
+        QuizState.AllQuestions.Clear();
+        NavManager.NavigateTo("/practice");
+    }
+}

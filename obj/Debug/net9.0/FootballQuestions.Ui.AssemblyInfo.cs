@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FootballQuestions.Ui")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dbd0cefea9d4e02f25034816bb06070c3cdd1ae1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+105cf5ff73b9ce18c023ff6b8aa8570579a00213")]
 [assembly: System.Reflection.AssemblyProductAttribute("FootballQuestions.Ui")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FootballQuestions.Ui")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

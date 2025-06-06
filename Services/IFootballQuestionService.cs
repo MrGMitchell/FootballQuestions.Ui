@@ -6,6 +6,6 @@ namespace FootballQuestions.Ui.Services
     {
         Task<FootballQuestion?> GetTodaysQuestion();
         
-        Task<List<FootballQuestion>?> GetQuizFootballQuestions();
+        Task<List<QuizQuestion>?> GetQuizFootballQuestions();
     }
 }

@@ -3,14 +3,14 @@
     <StaticWebAssetEndpoint Include="_content/FootballQuestions.Ui/app.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\app.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-aNPcLFwdCCGS2v1guSR64Htd4Ly5uclT7taAptnMPbs="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2900"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022aNPcLFwdCCGS2v1guSR64Htd4Ly5uclT7taAptnMPbs=\u0022"},{"Name":"Last-Modified","Value":"Wed, 21 May 2025 23:14:21 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-WTDVVgYY9DuC5fhYq9EmtN6Mte/ASsWt2TE7Um0yLqo="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"3102"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022WTDVVgYY9DuC5fhYq9EmtN6Mte/ASsWt2TE7Um0yLqo=\u0022"},{"Name":"Last-Modified","Value":"Wed, 04 Jun 2025 22:31:09 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/FootballQuestions.Ui/app.khy4lop6wu.css">
+    <StaticWebAssetEndpoint Include="_content/FootballQuestions.Ui/app.zp4bfhxi4i.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\app.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"khy4lop6wu"},{"Name":"integrity","Value":"sha256-aNPcLFwdCCGS2v1guSR64Htd4Ly5uclT7taAptnMPbs="},{"Name":"label","Value":"_content/FootballQuestions.Ui/app.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2900"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022aNPcLFwdCCGS2v1guSR64Htd4Ly5uclT7taAptnMPbs=\u0022"},{"Name":"Last-Modified","Value":"Wed, 21 May 2025 23:14:21 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"zp4bfhxi4i"},{"Name":"integrity","Value":"sha256-WTDVVgYY9DuC5fhYq9EmtN6Mte/ASsWt2TE7Um0yLqo="},{"Name":"label","Value":"_content/FootballQuestions.Ui/app.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"3102"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022WTDVVgYY9DuC5fhYq9EmtN6Mte/ASsWt2TE7Um0yLqo=\u0022"},{"Name":"Last-Modified","Value":"Wed, 04 Jun 2025 22:31:09 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/FootballQuestions.Ui/favicon.mvr9ytr1tv.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.png'))</AssetFile>

@@ -107,3 +107,27 @@ _UpgradeReport_Files/
 # Blazor specific
 wwwroot/bundle.js # If you have a custom bundling process that creates this
 wwwroot/bundle.css # If you have a custom bundling process that creates this
+bin/Debug/net9.0/FootballQuestions.Ui.dll
+bin/Debug/net9.0/FootballQuestions.Ui.dll
+bin/Debug/net9.0/FootballQuestions.Ui.staticwebassets.runtime.json
+bin/Debug/net9.0/FootballQuestions.Ui.staticwebassets.endpoints.json
+bin/Debug/net9.0/FootballQuestions.Ui.pdb
+bin/Debug/net9.0/FootballQuestions.Ui.exe
+bin/Debug/net9.0/FootballQuestions.Ui.dll
+obj/Debug/net9.0/apphost.exe
+obj/Debug/net9.0/FootballQuestions.Ui.AssemblyInfo.cs
+obj/Debug/net9.0/FootballQuestions.Ui.AssemblyInfoInputs.cache
+obj/Debug/net9.0/FootballQuestions.Ui.csproj.CoreCompileInputs.cache
+obj/Debug/net9.0/FootballQuestions.Ui.csproj.FileListAbsolute.txt
+obj/Debug/net9.0/FootballQuestions.Ui.dll
+obj/Debug/net9.0/FootballQuestions.Ui.GeneratedMSBuildEditorConfig.editorconfig
+obj/Debug/net9.0/FootballQuestions.Ui.pdb
+obj/Debug/net9.0/FootballQuestions.Ui.sourcelink.json
+obj/Debug/net9.0/staticwebassets.build.endpoints.json
+obj/Debug/net9.0/staticwebassets.build.json
+obj/Debug/net9.0/staticwebassets.development.json
+obj/Debug/net9.0/ref/FootballQuestions.Ui.dll
+obj/Debug/net9.0/refint/FootballQuestions.Ui.dll
+obj/Debug/net9.0/staticwebassets/msbuild.FootballQuestions.Ui.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+obj/Debug/net9.0/staticwebassets/msbuild.FootballQuestions.Ui.Microsoft.AspNetCore.StaticWebAssets.props
+Properties/launchSettings.json
