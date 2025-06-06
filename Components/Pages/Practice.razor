@@ -53,23 +53,6 @@
             </div>
         }
     </div>
-
-    @if (userAnswers.Any(ua => ua.QuestionId == currentQuestion.QuestionId))
-    {
-        var userAnswerForCurrentQuestion = userAnswers.FirstOrDefault(ua => ua.QuestionId == currentQuestion.QuestionId);
-        <p class="mt-3">
-            Your answer: <strong>@userAnswerForCurrentQuestion?.SelectedAnswer</strong>
-            <br />
-            @if (userAnswerForCurrentQuestion?.IsCorrect == true)
-            {
-                <span class="text-success">(Correct!)</span>
-            }
-            else
-            {
-                <span class="text-danger">(Incorrect. Correct answer: @currentQuestion.CorrectAnswer)</span>
-            }
-        </p>
-    }
 }
 else
 {
