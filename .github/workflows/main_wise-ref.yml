@@ -38,6 +38,9 @@ jobs:
   deploy:
     runs-on: windows-latest
     needs: build
+    permissions:
+      contents: read
+      deployments: write
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
