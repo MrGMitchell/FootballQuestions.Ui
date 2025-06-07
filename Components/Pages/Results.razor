@@ -20,7 +20,7 @@
             var userAnswer = QuizState.UserQuizAnswers.FirstOrDefault(ua => ua.QuestionId == question.QuestionId);
             <div class="card mb-3 @(userAnswer?.IsCorrect == true ? "border-success" : "border-danger")">
                 <div class="card-body">
-                    <h5 class="card-title">Question @question.QuestionId: @question.Question</h5>
+                    <h5 class="card-title">@question.Question</h5>
                     <p class="card-text">
                         <strong>Your Answer:</strong>
                         @if (userAnswer != null)
@@ -43,14 +43,14 @@
         }
     </div>
 
-    <button class="btn btn-primary mt-4" @onclick="RestartQuiz">
+    <button class="btn btn-primary my-4" @onclick="RestartQuiz">
         Restart Quiz
     </button>
 }
 else
 {
     <p>No quiz results found. Please complete the quiz first.</p>
-    <button class="btn btn-primary mt-4" @onclick="RestartQuiz">
+    <button class="btn btn-primary my-4" @onclick="RestartQuiz">
         Go to Quiz
     </button>
 }
