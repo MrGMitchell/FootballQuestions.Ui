@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy ASP.Net Core app to Azure Web App - Leo
+name: Build and deploy ASP.Net Core app to Azure Web App - Wise-Ref
 
 on:
   push:
@@ -38,31 +38,24 @@ jobs:
   deploy:
     runs-on: windows-latest
     needs: build
+    permissions:
+      contents: read
+      deployments: write
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
-
+    
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: .net-app
       
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_AC355C43FA7B4CF4A77B180DD62404EE }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3F9726001B18409F9CBB01B1031BC794 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_02508074D1E74D4E8DC849434E33D976 }}
-
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'Leo'
+          app-name: 'Wise-Ref'
           slot-name: 'Production'
           package: .
-          
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_90469629CE2140C4AFF242B5F0545AA5 }}
