@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "A9LecHPsaF1zYDRg9g7GMLziznrRXPyiz0N58tS7ow0=",
+  "Hash": "weA8ZVIvDksvqHpjQw35AQAToxAbU8UaUXHSfsCi5MQ=",
   "Source": "FootballQuestions.Ui",
   "BasePath": "_content/FootballQuestions.Ui",
   "Mode": "Default",
@@ -1086,6 +1086,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\wwwroot\\Images\\wise-ref-logo.png",
+      "SourceId": "FootballQuestions.Ui",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\wwwroot\\",
+      "BasePath": "_content/FootballQuestions.Ui",
+      "RelativePath": "Images/wise-ref-logo#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "sutulx2wim",
+      "Integrity": "pGv/wbGJOxscvjd7hr/2YuSwefUmV8xwHF/rbAKhgvs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\wise-ref-logo.png"
     },
     {
       "Identity": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
@@ -2334,7 +2355,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 28 May 2025 22:38:15 GMT"
+          "Value": "Tue, 10 Jun 2025 00:07:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2379,7 +2400,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 28 May 2025 22:38:15 GMT"
+          "Value": "Tue, 10 Jun 2025 00:07:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2986,6 +3007,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-C8g3ITdlLy/GNonwaOs/705fgmABZg1ASdPOkEdbEsU="
+        }
+      ]
+    },
+    {
+      "Route": "Images/wise-ref-logo.png",
+      "AssetFile": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\wwwroot\\Images\\wise-ref-logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "169786"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pGv/wbGJOxscvjd7hr/2YuSwefUmV8xwHF/rbAKhgvs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 10 Jun 2025 00:15:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pGv/wbGJOxscvjd7hr/2YuSwefUmV8xwHF/rbAKhgvs="
+        }
+      ]
+    },
+    {
+      "Route": "Images/wise-ref-logo.sutulx2wim.png",
+      "AssetFile": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\wwwroot\\Images\\wise-ref-logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "169786"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pGv/wbGJOxscvjd7hr/2YuSwefUmV8xwHF/rbAKhgvs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 10 Jun 2025 00:15:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sutulx2wim"
+        },
+        {
+          "Name": "label",
+          "Value": "Images/wise-ref-logo.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pGv/wbGJOxscvjd7hr/2YuSwefUmV8xwHF/rbAKhgvs="
         }
       ]
     },

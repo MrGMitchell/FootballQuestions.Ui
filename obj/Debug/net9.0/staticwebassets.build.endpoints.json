@@ -301,6 +301,88 @@
       ]
     },
     {
+      "Route": "Images/wise-ref-logo.png",
+      "AssetFile": "Images/wise-ref-logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "169786"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pGv/wbGJOxscvjd7hr/2YuSwefUmV8xwHF/rbAKhgvs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 10 Jun 2025 00:15:02 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pGv/wbGJOxscvjd7hr/2YuSwefUmV8xwHF/rbAKhgvs="
+        }
+      ]
+    },
+    {
+      "Route": "Images/wise-ref-logo.sutulx2wim.png",
+      "AssetFile": "Images/wise-ref-logo.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "169786"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pGv/wbGJOxscvjd7hr/2YuSwefUmV8xwHF/rbAKhgvs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 10 Jun 2025 00:15:02 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sutulx2wim"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pGv/wbGJOxscvjd7hr/2YuSwefUmV8xwHF/rbAKhgvs="
+        },
+        {
+          "Name": "label",
+          "Value": "Images/wise-ref-logo.png"
+        }
+      ]
+    },
+    {
       "Route": "app.css",
       "AssetFile": "app.css.gz",
       "Selectors": [
@@ -625,7 +707,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 28 May 2025 22:38:15 GMT"
+          "Value": "Tue, 10 Jun 2025 00:07:09 GMT"
         }
       ],
       "EndpointProperties": [
@@ -670,7 +752,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 28 May 2025 22:38:15 GMT"
+          "Value": "Tue, 10 Jun 2025 00:07:09 GMT"
         }
       ],
       "EndpointProperties": [
