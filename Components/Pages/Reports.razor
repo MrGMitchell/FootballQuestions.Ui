@@ -1,0 +1,205 @@
+@page "/reports"
+@rendermode InteractiveServer
+
+@inject IQuizReportService QuizReportService
+@inject NavigationManager NavManager
+
+@using FootballQuestions.Ui.Models
+@using FootballQuestions.Ui.Services
+
+<PageTitle>Reports & Dashboard</PageTitle>
+
+<div class="container-fluid mt-4">
+    <div class="row mb-4">
+        <div class="col">
+            <h1 class="display-4">Quiz Reports & Dashboard</h1>
+        </div>
+    </div>
+
+    @if (reportData != null)
+    {
+        <!-- Overall Statistics Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Overall Statistics</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 text-center">
+                                <h6 class="text-muted">Total Quizzes Taken</h6>
+                                <h2 class="fw-bold">@reportData.TotalQuizzesTaken</h2>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <h6 class="text-muted">Questions Answered</h6>
+                                <h2 class="fw-bold">@reportData.TotalQuestionsAnswered</h2>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <h6 class="text-muted">Correct Answers</h6>
+                                <h2 class="fw-bold text-success">@reportData.TotalCorrectAnswers</h2>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <h6 class="text-muted">Overall Accuracy</h6>
+                                <h2 class="fw-bold" style="color: @GetAccuracyColor(reportData.OverallAccuracyPercentage)">
+                                    @reportData.OverallAccuracyPercentage.ToString("F1")%
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance by Category Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0">Performance by Category</h5>
+                    </div>
+                    <div class="card-body">
+                        @if (reportData.CategoryBreakdown != null && reportData.CategoryBreakdown.Any())
+                        {
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Category</th>
+                                            <th class="text-center">Total Questions</th>
+                                            <th class="text-center">Correct Answers</th>
+                                            <th class="text-center">Incorrect Answers</th>
+                                            <th class="text-center">Accuracy</th>
+                                            <th class="text-center">Progress</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var category in reportData.CategoryBreakdown.OrderByDescending(c => c.AccuracyPercentage))
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <strong>@category.Category</strong>
+                                                </td>
+                                                <td class="text-center">@category.TotalQuestions</td>
+                                                <td class="text-center">
+                                                    <span class="badge bg-success">@category.CorrectAnswers</span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span class="badge bg-danger">@(category.TotalQuestions - category.CorrectAnswers)</span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <strong style="color: @GetAccuracyColor(category.AccuracyPercentage)">
+                                                        @category.AccuracyPercentage.ToString("F1")%
+                                                    </strong>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="progress" style="height: 25px;">
+                                                        <div class="progress-bar bg-success" role="progressbar"
+                                                            style="width: @category.AccuracyPercentage%"
+                                                            aria-valuenow="@category.AccuracyPercentage" aria-valuemin="0" aria-valuemax="100">
+                                                            @category.AccuracyPercentage.ToString("F0")%
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                        else
+                        {
+                            <p class="text-muted">No category data available yet.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Quizzes Section -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-secondary text-white">
+                        <h5 class="mb-0">Recent Quiz Results</h5>
+                    </div>
+                    <div class="card-body">
+                        @if (reportData.RecentQuizzes != null && reportData.RecentQuizzes.Any())
+                        {
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Quiz Date</th>
+                                            <th class="text-center">Questions</th>
+                                            <th class="text-center">Correct</th>
+                                            <th class="text-center">Accuracy</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var quiz in reportData.RecentQuizzes.OrderByDescending(q => q.CompletedAt).Take(10))
+                                        {
+                                            <tr>
+                                                <td>@quiz.CompletedAt.ToString("MMM dd, yyyy HH:mm")</td>
+                                                <td class="text-center">@quiz.TotalQuestions</td>
+                                                <td class="text-center">
+                                                    <span class="badge bg-success">@quiz.CorrectAnswers</span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <strong style="color: @GetAccuracyColor(quiz.AccuracyPercentage)">
+                                                        @quiz.AccuracyPercentage.ToString("F1")%
+                                                    </strong>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                        else
+                        {
+                            <p class="text-muted">No quiz results available yet. Start practicing to see your history here.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            <p>Loading your report data...</p>
+        </div>
+    }
+
+    <div class="row mt-4">
+        <div class="col">
+            <button class="btn btn-secondary" @onclick="GoBack">Go Back</button>
+        </div>
+    </div>
+</div>
+
+@code {
+    private UserReportSummary? reportData;
+    private string userId = "current-user"; // TODO: Replace with actual authenticated user ID
+
+    protected override async Task OnInitializedAsync()
+    {
+        reportData = await QuizReportService.GetUserReport(userId);
+    }
+
+    private string GetAccuracyColor(double accuracy)
+    {
+        if (accuracy >= 80)
+            return "#28a745"; // Green
+        else if (accuracy >= 60)
+            return "#ffc107"; // Yellow
+        else
+            return "#dc3545"; // Red
+    }
+
+    private void GoBack()
+    {
+        NavManager.NavigateTo("/");
+    }
+}

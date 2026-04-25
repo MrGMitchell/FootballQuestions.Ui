@@ -3,6 +3,7 @@
 
 @inject IConfiguration Configuration
 @inject IFootballQuestionService FootballQuestionService
+@inject IQuizAnswerService QuizAnswerService
 @inject NavigationManager NavManager
 
 @using System.Net.Http.Json
@@ -90,7 +91,10 @@ else
         {
             QuestionId = currentQuestion.QuestionId,
             SelectedAnswer = selectedOption,
-            IsCorrect = isCorrect
+            IsCorrect = isCorrect,
+            AnsweredAt = DateTime.UtcNow,
+            RuleNumber = currentQuestion.RuleNumber,
+            Categories = currentQuestion.Categories
         });
     }
 
@@ -110,13 +114,21 @@ else
         }
     }
 
-    private void FinishQuiz()
+    private async Task FinishQuiz()
     {
-        // Store userAnswers in a service or pass via QueryString/State management
-        // For simplicity, we'll store it statically (not recommended for production)
-        // Or better, use a persistent state service/component.
+        // Save answers to Cosmos DB
+        string userId = "current-user"; // TODO: Replace with actual user ID from authentication
+        bool saved = await QuizAnswerService.SaveQuizAnswers(userAnswers, userId);
+
+        if (!saved)
+        {
+            Console.Error.WriteLine("Failed to save quiz answers");
+            // Optionally show error to user or handle gracefully
+        }
+
+        // Store in QuizState for results page
         QuizState.UserQuizAnswers = userAnswers;
-        QuizState.AllQuestions = questions; // Pass all questions to results page
+        QuizState.AllQuestions = questions;
 
         NavManager.NavigateTo("/results");
     }

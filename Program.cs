@@ -22,6 +22,8 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddScoped<IFootballQuestionService, FootballQuestionService>();
 builder.Services.AddScoped<IEmailSubscriptionService, EmailSubscriptionService>();
+builder.Services.AddScoped<IQuizAnswerService, QuizAnswerService>();
+builder.Services.AddScoped<IQuizReportService, QuizReportService>();
 
 builder.Services.AddAzureAppConfiguration();
 

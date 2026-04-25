@@ -18,5 +18,11 @@ namespace FootballQuestions.Ui.Models
 
         [property: JsonPropertyName("choices")]
         public List<string>? Choices { get; set; }
+
+        [property: JsonPropertyName("categories")]
+        public List<string>? Categories { get; set; }
+
+        [property: JsonPropertyName("ruleNumber")]
+        public string? RuleNumber { get; set; }
     }
 }

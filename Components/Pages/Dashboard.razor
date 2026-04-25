@@ -1,0 +1,223 @@
+@page "/dashboard"
+@rendermode InteractiveServer
+@inject IQuizReportService ReportService
+@inject NavigationManager NavManager
+
+@using FootballQuestions.Ui.Models
+@using FootballQuestions.Ui.Services
+
+<PageTitle>Dashboard</PageTitle>
+
+<div class="container-fluid mt-4">
+    <h1 class="mb-4">Quiz Performance Dashboard</h1>
+
+    @if (reportSummary == null)
+    {
+        <div class="alert alert-info">
+            Loading dashboard data...
+        </div>
+    }
+    else
+    {
+        <!-- Overall Statistics -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card bg-primary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Quizzes</h5>
+                        <h2>@reportSummary.TotalQuizzesTaken</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Overall Accuracy</h5>
+                        <h2>@reportSummary.OverallAccuracyPercentage.ToString("F1")%</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-info text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Questions</h5>
+                        <h2>@reportSummary.TotalQuestionsAnswered</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-warning text-dark">
+                    <div class="card-body">
+                        <h5 class="card-title">Correct Answers</h5>
+                        <h2>@reportSummary.TotalCorrectAnswers</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Performance -->
+        @if (reportSummary.CategoryBreakdown?.Any() == true)
+        {
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h3>Category Performance</h3>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Questions</th>
+                                    <th>Correct</th>
+                                    <th>Accuracy</th>
+                                    <th>Progress</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var category in reportSummary.CategoryBreakdown.OrderByDescending(c => c.AccuracyPercentage))
+                                {
+                                    <tr>
+                                        <td>@category.Category</td>
+                                        <td>@category.TotalQuestions</td>
+                                        <td>@category.CorrectAnswers</td>
+                                        <td>
+                                            <span class="@GetAccuracyBadge(category.AccuracyPercentage)">
+                                                @category.AccuracyPercentage.ToString("F1")%
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="progress" style="height: 20px;">
+                                                <div class="progress-bar @GetProgressBarClass(category.AccuracyPercentage)" 
+                                                     role="progressbar" 
+                                                     style="width: @(category.AccuracyPercentage)%"
+                                                     aria-valuenow="@category.AccuracyPercentage" 
+                                                     aria-valuemin="0" 
+                                                     aria-valuemax="100">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <!-- Recent Quiz History -->
+        @if (quizHistory?.Any() == true)
+        {
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h3>Recent Quiz History</h3>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Score</th>
+                                    <th>Accuracy</th>
+                                    <th>Total Questions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var quiz in quizHistory.OrderByDescending(q => q.CompletedAt).Take(10))
+                                {
+                                    <tr>
+                                        <td>@quiz.CompletedAt.ToString("g")</td>
+                                        <td>@quiz.CorrectAnswers / @quiz.TotalQuestions</td>
+                                        <td>
+                                            <span class="@GetAccuracyBadge(quiz.AccuracyPercentage)">
+                                                @quiz.AccuracyPercentage.ToString("F1")%
+                                            </span>
+                                        </td>
+                                        <td>@quiz.TotalQuestions</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <!-- Action Buttons -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <button class="btn btn-primary btn-lg" @onclick="GoToPractice">
+                    Start New Quiz
+                </button>
+                <button class="btn btn-secondary btn-lg ms-2" @onclick="RefreshDashboard">
+                    Refresh
+                </button>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .card {
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .table {
+        border-collapse: collapse;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    .progress {
+        border-radius: 4px;
+    }
+</style>
+
+@code {
+    private UserReportSummary? reportSummary;
+    private List<QuizReport>? quizHistory;
+    private string userId = "current-user"; // TODO: Replace with actual authenticated user ID
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadDashboard();
+    }
+
+    private async Task LoadDashboard()
+    {
+        reportSummary = await ReportService.GetUserReport(userId);
+        quizHistory = await ReportService.GetQuizHistory(userId);
+    }
+
+    private async Task RefreshDashboard()
+    {
+        await LoadDashboard();
+    }
+
+    private void GoToPractice()
+    {
+        NavManager.NavigateTo("/practice");
+    }
+
+    private string GetAccuracyBadge(double accuracy)
+    {
+        return accuracy switch
+        {
+            >= 80 => "badge bg-success",
+            >= 60 => "badge bg-warning",
+            _ => "badge bg-danger"
+        };
+    }
+
+    private string GetProgressBarClass(double accuracy)
+    {
+        return accuracy switch
+        {
+            >= 80 => "bg-success",
+            >= 60 => "bg-warning",
+            _ => "bg-danger"
+        };
+    }
+}

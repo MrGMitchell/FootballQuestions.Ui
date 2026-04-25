@@ -16,5 +16,8 @@ namespace FootballQuestions.Ui.Models
 
         [property: JsonPropertyName("lastSent")]
         public DateTime? LastSent { get; set; }
+
+        [property: JsonPropertyName("categories")]
+        public List<string>? Categories { get; set; }
     }
 }
