@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[2.5.10, )"
             },
+            "Microsoft.AspNetCore.Components.Authorization": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "Microsoft.Azure.AppConfiguration.AspNetCore": {
               "target": "Package",
               "version": "[8.2.0, )"

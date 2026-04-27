@@ -1,6 +1,7 @@
 @page "/subscribe"
 @using FootballQuestions.Ui.Models
 @using FootballQuestions.Ui.Services
+@attribute [Microsoft.AspNetCore.Authorization.Authorize]
 @inject IEmailSubscriptionService SubscriptionService
 
 <PageTitle>Subscribe</PageTitle>

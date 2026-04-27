@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dZaxhiNTC0I=",
+  "dgSpecHash": "vFtDENwBxz4=",
   "success": true,
   "projectFilePath": "C:\\Users\\gmitc\\OneDrive\\Desktop\\GitHub\\FootballQuestions.Ui\\FootballQuestions.Ui\\FootballQuestions.Ui.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,11 @@
     "C:\\Users\\gmitc\\.nuget\\packages\\azure.security.keyvault.secrets\\4.6.0\\azure.security.keyvault.secrets.4.6.0.nupkg.sha512",
     "C:\\Users\\gmitc\\.nuget\\packages\\dnsclient\\1.7.0\\dnsclient.1.7.0.nupkg.sha512",
     "C:\\Users\\gmitc\\.nuget\\packages\\google_generativeai\\2.5.10\\google_generativeai.2.5.10.nupkg.sha512",
+    "C:\\Users\\gmitc\\.nuget\\packages\\microsoft.aspnetcore.authorization\\9.0.0\\microsoft.aspnetcore.authorization.9.0.0.nupkg.sha512",
+    "C:\\Users\\gmitc\\.nuget\\packages\\microsoft.aspnetcore.components\\9.0.0\\microsoft.aspnetcore.components.9.0.0.nupkg.sha512",
+    "C:\\Users\\gmitc\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\9.0.0\\microsoft.aspnetcore.components.analyzers.9.0.0.nupkg.sha512",
+    "C:\\Users\\gmitc\\.nuget\\packages\\microsoft.aspnetcore.components.authorization\\9.0.0\\microsoft.aspnetcore.components.authorization.9.0.0.nupkg.sha512",
+    "C:\\Users\\gmitc\\.nuget\\packages\\microsoft.aspnetcore.metadata\\9.0.0\\microsoft.aspnetcore.metadata.9.0.0.nupkg.sha512",
     "C:\\Users\\gmitc\\.nuget\\packages\\microsoft.azure.appconfiguration.aspnetcore\\8.2.0\\microsoft.azure.appconfiguration.aspnetcore.8.2.0.nupkg.sha512",
     "C:\\Users\\gmitc\\.nuget\\packages\\microsoft.azure.cosmos\\3.51.0\\microsoft.azure.cosmos.3.51.0.nupkg.sha512",
     "C:\\Users\\gmitc\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",

@@ -6,13 +6,9 @@
 @inject IQuizAnswerService QuizAnswerService
 @inject NavigationManager NavManager
 
-@using System.Net.Http.Json
-@using System.Text
+@attribute [Microsoft.AspNetCore.Authorization.Authorize]
 @using FootballQuestions.Ui.Models
 @using FootballQuestions.Ui.Services
-@using GenerativeAI
-@using System.Net.Http.Headers
-@using Newtonsoft.Json
 
 <PageTitle>Practice</PageTitle>
 
@@ -27,7 +23,7 @@
         @foreach (var option in currentQuestion?.Choices ?? Enumerable.Empty<string>())
         {
             <button class="btn @GetOptionButtonClass(option)" @onclick="() => SelectAnswer(option)"
-                disabled="@(userAnswers.Any(ua => ua.QuestionId == currentQuestion.QuestionId))">
+                disabled="@(currentQuestion != null && userAnswers.Any(ua => ua.QuestionId == currentQuestion.QuestionId))">
                 @option
             </button>
         }
@@ -41,7 +37,7 @@
         </div>
         <div class="container-fluid d-grid">
             <button class="btn btn-outline-primary" @onclick="NextQuestion"
-                disabled="@(currentQuestionIndex == questions.Count - 1 || !userAnswers.Any(ua => ua.QuestionId == currentQuestion.QuestionId))">
+                disabled="@(currentQuestionIndex == questions.Count - 1 || currentQuestion == null || !userAnswers.Any(ua => ua.QuestionId == currentQuestion.QuestionId))">
                 Next
             </button>
         </div>
@@ -73,7 +69,7 @@ else
         // You might want to shuffle questions here:
         foreach (var question in questions)
         {
-            question.Choices = question.Choices.OrderBy(c => Guid.NewGuid()).ToList();
+            question.Choices = question.Choices?.OrderBy(c => Guid.NewGuid()).ToList() ?? new List<string>();
         }
     }
 
@@ -85,7 +81,8 @@ else
             return;
         }
 
-        var isCorrect = (selectedOption.Trim() == currentQuestion.CorrectAnswer.Trim());
+        var isCorrect = !string.IsNullOrEmpty(currentQuestion.CorrectAnswer) && 
+                       (selectedOption.Trim() == currentQuestion.CorrectAnswer.Trim());
 
         userAnswers.Add(new UserAnswer
         {
@@ -144,7 +141,8 @@ else
 
         if (userAnswer != null)
         {
-            if (option.Trim() == currentQuestion.CorrectAnswer.Trim())
+            if (!string.IsNullOrEmpty(option) && !string.IsNullOrEmpty(currentQuestion.CorrectAnswer) &&
+                (option.Trim() == currentQuestion.CorrectAnswer.Trim()))
             {
                 return "btn-success"; // Correct answer
             }
