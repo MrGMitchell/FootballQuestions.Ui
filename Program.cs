@@ -3,6 +3,13 @@ using FootballQuestions.Ui.Services;
 using Microsoft.Net.Http.Headers;
 using Azure.Identity;
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.Identity.Web;
+using Microsoft.Identity.Web.UI;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+
+JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,11 +42,32 @@ builder.Services.AddHttpClient("LunaApi", httpClient =>
     {
         throw new InvalidOperationException("LunaApi configuration value is missing or empty.");
     }
-    
+
     httpClient.BaseAddress = new Uri(endpointUri);
     httpClient.DefaultRequestHeaders.Add(
         HeaderNames.Accept, "application/json");
 });
+
+builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+    .AddMicrosoftIdentityWebApp(options => 
+    {
+        builder.Configuration.Bind("AzureAd", options);
+        
+        // Map the correct claim to the Identity.Name property
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            NameClaimType = "name" 
+        };
+    });
+
+builder.Services.AddAuthorization(options =>
+{
+    // This forces every single endpoint and page to require a login by default
+    options.FallbackPolicy = options.DefaultPolicy;
+});
+
+builder.Services.AddControllersWithViews()
+    .AddMicrosoftIdentityUI();
 
 var app = builder.Build();
 
@@ -60,5 +88,7 @@ app.MapStaticAssets();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
+
+app.MapControllers();
 
 app.Run();
