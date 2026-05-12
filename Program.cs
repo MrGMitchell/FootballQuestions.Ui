@@ -48,6 +48,13 @@ builder.Services.AddHttpClient("LunaApi", httpClient =>
         HeaderNames.Accept, "application/json");
 });
 
+builder.Services.Configure<CookiePolicyOptions>(options =>
+{
+    options.CheckConsentNeeded = context => true;
+    options.MinimumSameSitePolicy = Microsoft.AspNetCore.Http.SameSiteMode.None; // Required for cross-site redirects
+    options.Secure = CookieSecurePolicy.Always;
+});
+
 builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
     .AddMicrosoftIdentityWebApp(options => 
     {
@@ -81,6 +88,12 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAzureAppConfiguration();
+
+app.UseCookiePolicy();
+
+app.UseAuthentication();
+
+app.UseAuthorization();
 
 app.UseAntiforgery();
 

@@ -181,7 +181,7 @@
 
 @code {
     private UserReportSummary? reportData;
-    private string userId = "current-user"; // TODO: Replace with actual authenticated user ID
+    private string userId = "current-user";//context.User.FindFirst("name")?.Value; // TODO: Replace with actual authenticated user ID
 
     protected override async Task OnInitializedAsync()
     {

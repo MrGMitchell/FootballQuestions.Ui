@@ -94,7 +94,6 @@ C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\scopedcss\bundle\FootballQuestions.Ui.styles.css
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\scopedcss\projectbundle\FootballQuestions.Ui.bundle.scp.css
-C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\compressed\94yj0i09d9-{0}-zp4bfhxi4i-zp4bfhxi4i.gz
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\compressed\kz9byd6fd0-{0}-bqjiyaj88i-bqjiyaj88i.gz
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\compressed\mhy2mrdqqq-{0}-c2jlpeoesf-c2jlpeoesf.gz
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\compressed\e8frdvw297-{0}-erw9l3u2r3-erw9l3u2r3.gz
@@ -139,8 +138,6 @@ C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\compressed\wse7866obj-{0}-h1s4sie4z3-h1s4sie4z3.gz
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\compressed\40rh57jzp9-{0}-63fj8s7r0e-63fj8s7r0e.gz
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\compressed\l8ybhi4r88-{0}-0j3bgjxly4-0j3bgjxly4.gz
-C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\compressed\1f5ja638cr-{0}-k0ryyn2ft5-k0ryyn2ft5.gz
-C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\compressed\864yu881mz-{0}-k0ryyn2ft5-k0ryyn2ft5.gz
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\staticwebassets.development.json
@@ -152,3 +149,6 @@ C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\FootballQuestions.Ui.pdb
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\FootballQuestions.Ui.genruntimeconfig.cache
 C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\ref\FootballQuestions.Ui.dll
+C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\compressed\94yj0i09d9-{0}-h9kunp7jrx-h9kunp7jrx.gz
+C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\compressed\1f5ja638cr-{0}-ul7a8ycsl1-ul7a8ycsl1.gz
+C:\Users\gmitc\OneDrive\Desktop\GitHub\FootballQuestions.Ui\FootballQuestions.Ui\obj\Debug\net9.0\compressed\864yu881mz-{0}-ul7a8ycsl1-ul7a8ycsl1.gz
