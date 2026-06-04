@@ -135,8 +135,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
-
 app.Use(async (context, next) =>
 {
     var host = context.Request.Host.Host;
