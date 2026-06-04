@@ -117,6 +117,18 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.Use(async (context, next) =>
+{
+    var host = context.Request.Host.Host;
+    if (!host.Equals("localhost", StringComparison.OrdinalIgnoreCase) && !host.StartsWith("www.", StringComparison.OrdinalIgnoreCase))
+    {
+        var withWww = context.Request.Scheme + "://www." + context.Request.Host.Value + context.Request.PathBase + context.Request.Path + context.Request.QueryString;
+        context.Response.Redirect(withWww, permanent: true);
+        return;
+    }
+    await next();
+});
+
 app.UseAzureAppConfiguration();
 
 app.UseCookiePolicy();
