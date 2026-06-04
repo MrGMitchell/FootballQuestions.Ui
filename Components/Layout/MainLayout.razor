@@ -11,10 +11,10 @@
             <AuthorizeView>
                 <Authorized>
                     <span>Hello, @context.User.FindFirst("name")?.Value!</span>
-                    <a href="MicrosoftIdentity/Account/SignOut">Log out</a>
+                    <a href="">Log out</a>
                 </Authorized>
                 <NotAuthorized>
-                    <a href="MicrosoftIdentity/Account/SignIn" class="btn btn-primary">
+                    <a href="" class="btn btn-primary">
                         Sign in with Google
                     </a>
                 </NotAuthorized>
