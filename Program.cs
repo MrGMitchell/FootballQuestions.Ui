@@ -83,12 +83,32 @@ builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
     .AddMicrosoftIdentityWebApp(options => 
     {
         builder.Configuration.Bind("AzureAd", options);
-        
         options.RemoteAuthenticationTimeout = TimeSpan.FromMinutes(15); 
         
         options.TokenValidationParameters = new TokenValidationParameters
         {
             NameClaimType = "name" 
+        };
+
+        // --- ADD THIS EVENTS BLOCK TO FIX IFRAME ISSUES ---
+        options.Events = new OpenIdConnectEvents
+        {
+            OnRedirectToIdentityProvider = context =>
+            {
+                // Check if the request is an AJAX/Fetch request or coming from an iframe context
+                if (context.Request.Headers["X-Requested-With"] == "XMLHttpRequest" ||
+                    context.Request.Path.Value.Contains("ConnectSomeStuff", StringComparison.OrdinalIgnoreCase))
+                {
+                    context.Response.Headers.Add("Location", context.ProtocolMessage.CreateAuthenticationRequestUrl());
+                    context.Response.StatusCode = 401;
+                    context.HandleResponse();
+                }
+                
+                // Ensure the security header doesn't restrict the primary top-level window redirect
+                context.Response.Headers.Remove("X-Frame-Options");
+                
+                return Task.CompletedTask;
+            }
         };
     });
 
