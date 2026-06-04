@@ -1,6 +1,8 @@
-﻿@page "/"
+﻿@attribute [AllowAnonymous]
+@page "/"
 @using FootballQuestions.Ui.Models
 @using FootballQuestions.Ui.Services
+@using Microsoft.AspNetCore.Authorization
 
 @inject IFootballQuestionService FootballQuestionService
 

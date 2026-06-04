@@ -1,4 +1,5 @@
-﻿@page "/practice"
+﻿@attribute [AllowAnonymous]
+@page "/practice"
 @rendermode InteractiveServer
 
 @inject IConfiguration Configuration
@@ -8,6 +9,7 @@
 
 @using FootballQuestions.Ui.Models
 @using FootballQuestions.Ui.Services
+@using Microsoft.AspNetCore.Authorization
 
 <PageTitle>Practice</PageTitle>
 

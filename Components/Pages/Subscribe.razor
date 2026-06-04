@@ -1,6 +1,8 @@
+@attribute [AllowAnonymous]
 @page "/subscribe"
 @using FootballQuestions.Ui.Models
 @using FootballQuestions.Ui.Services
+@using Microsoft.AspNetCore.Authorization
 @inject IEmailSubscriptionService SubscriptionService
 
 <PageTitle>Subscribe</PageTitle>

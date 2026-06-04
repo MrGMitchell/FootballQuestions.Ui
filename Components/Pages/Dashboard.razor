@@ -1,3 +1,4 @@
+@attribute [AllowAnonymous]
 @page "/dashboard"
 @rendermode InteractiveServer
 @inject IQuizReportService ReportService
@@ -5,6 +6,7 @@
 
 @using FootballQuestions.Ui.Models
 @using FootballQuestions.Ui.Services
+@using Microsoft.AspNetCore.Authorization
 
 <PageTitle>Dashboard</PageTitle>
 

@@ -112,11 +112,7 @@ builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
         };
     });
 
-builder.Services.AddAuthorization(options =>
-{
-    // This forces every single endpoint and page to require a login by default
-    options.FallbackPolicy = options.DefaultPolicy;
-});
+builder.Services.AddAuthorization();
 
 builder.Services.AddControllersWithViews()
     .AddMicrosoftIdentityUI();
