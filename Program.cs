@@ -2,6 +2,7 @@ using FootballQuestions.Ui.Components;
 using FootballQuestions.Ui.Services;
 using Microsoft.Net.Http.Headers;
 using Azure.Identity;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web;
@@ -50,9 +51,32 @@ builder.Services.AddHttpClient("LunaApi", httpClient =>
 
 builder.Services.Configure<CookiePolicyOptions>(options =>
 {
-    options.CheckConsentNeeded = context => true;
-    options.MinimumSameSitePolicy = Microsoft.AspNetCore.Http.SameSiteMode.None; // Required for cross-site redirects
-    options.Secure = CookieSecurePolicy.Always;
+    options.MinimumSameSitePolicy = Microsoft.AspNetCore.Http.SameSiteMode.Unspecified; // Mobile fallback
+    options.OnAppendCookie = cookieContext =>
+    {
+        dynamic context = cookieContext;
+        if (context.CookieOptions.SameSite == Microsoft.AspNetCore.Http.SameSiteMode.None)
+        {
+            var userAgent = context.HttpContext.Request.Headers["User-Agent"].ToString();
+            if (userAgent.Contains("Macintosh") || userAgent.Contains("iPhone") || userAgent.Contains("iPad"))
+            {
+                context.CookieOptions.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Unspecified;
+            }
+        }
+    };
+
+    options.OnDeleteCookie = cookieContext =>
+    {
+        dynamic context = cookieContext;
+        if (context.CookieOptions.SameSite == Microsoft.AspNetCore.Http.SameSiteMode.None)
+        {
+            var userAgent = context.HttpContext.Request.Headers["User-Agent"].ToString();
+            if (userAgent.Contains("Macintosh") || userAgent.Contains("iPhone") || userAgent.Contains("iPad"))
+            {
+                context.CookieOptions.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Unspecified;
+            }
+        }
+    };
 });
 
 builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
@@ -60,7 +84,8 @@ builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
     {
         builder.Configuration.Bind("AzureAd", options);
         
-        // Map the correct claim to the Identity.Name property
+        options.RemoteAuthenticationTimeout = TimeSpan.FromMinutes(15); 
+        
         options.TokenValidationParameters = new TokenValidationParameters
         {
             NameClaimType = "name" 
@@ -78,6 +103,11 @@ builder.Services.AddControllersWithViews()
 
 var app = builder.Build();
 
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
@@ -90,6 +120,8 @@ app.UseHttpsRedirection();
 app.UseAzureAppConfiguration();
 
 app.UseCookiePolicy();
+
+app.UseRouting();
 
 app.UseAuthentication();
 
